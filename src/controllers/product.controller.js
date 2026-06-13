@@ -327,10 +327,7 @@ export async function searchProduct(req, res) {
 
        
         const searchQuery = {
-            $or: [
-                { name: { $regex: searchRegex } },
-                { description: { $regex: searchRegex } }
-            ]
+         name: { $regex: searchRegex } 
         };
 
    
