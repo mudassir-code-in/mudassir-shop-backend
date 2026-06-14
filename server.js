@@ -3,13 +3,21 @@ dotenv.config();
 import app from "./src/app.js";
 import connectDB from "./src/config/db.js";
 import { connectRedis } from './src/config/redis.js';
-import './src/services/email.service.js';
+import { transporter } from './src/services/email.service.js';
 
 
 
 connectDB();
 
 connectRedis();
+
+transporter.verify((error, success) => {
+    if(error){
+        console.log('Email server connecting error', error);
+    } else {
+        console.log('Email server ready to send message');
+    }
+});
 
 
 const port = 3000
