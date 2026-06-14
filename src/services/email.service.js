@@ -3,7 +3,9 @@ import nodemailer from 'nodemailer';
 
 
 const transporter = nodemailer.createTransport({
-    host: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,             
+    secure: true,
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
@@ -18,19 +20,19 @@ transporter.verify((error, success) => {
     }
 });
 
-    export const sendMail = async (to, subject, text, html) => {
-        try {
-            const info = await transporter.sendMail({
-                from: `Mudassir developer, ${process.env.EMAIL_USER}`,
-                to,
-                subject,
-                text,
-                html
-            });
+export const sendMail = async (to, subject, text, html) => {
+    try {
+        const info = await transporter.sendMail({
+            from: `Mudassir developer, ${process.env.EMAIL_USER}`,
+            to,
+            subject,
+            text,
+            html
+        });
 
-        } catch (error) {
-            console.log('Email sending error', error);
+    } catch (error) {
+        console.log('Email sending error', error);
 
-            throw error;
-        }
+        throw error;
     }
+}
