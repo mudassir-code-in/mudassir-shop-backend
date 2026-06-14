@@ -3,6 +3,7 @@ dotenv.config();
 import app from "./src/app.js";
 import connectDB from "./src/config/db.js";
 import { connectRedis } from './src/config/redis.js';
+import './src/services/email.service.js';
 
 
 
