@@ -1,8 +1,5 @@
 import nodemailer from 'nodemailer';
 
-console.log("--- DEBUGGING EMAIL SETUP ---");
-console.log("EMAIL_USER check:", process.env.EMAIL_USER ? "Loaded!" : "NOT LOADED!");
-console.log("EMAIL_PASS check:", process.env.EMAIL_PASS ? "Loaded!" : "NOT LOADED!");
 
 const transporter = nodemailer.createTransport({
     host: 'smtp-relay.brevo.com',
